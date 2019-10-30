@@ -26,8 +26,8 @@ shell = Shell.from_lines(lines, delete_boundary_face=True)
 # ==============================================================================
 
 corners = list(shell.vertices_where({'vertex_degree': 3}))
-high = 16
-higher = 1
+high = 26 
+higher = 43
 
 shell.set_vertices_attribute('is_fixed', True, keys=corners)
 shell.set_vertex_attribute(higher, 'z', 7.0)

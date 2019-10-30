@@ -17,7 +17,7 @@ from compas_rhino.artists import MeshArtist
 
 # from compas.numerical import fd_numpy
 from compas.rpc import Proxy
-numerical = Proxy('...')
+numerical = Proxy('compas.numerical')
 fd_numpy = numerical.fd_numpy
 
 # ==============================================================================
@@ -34,7 +34,7 @@ FILE = os.path.join(DATA, 'faces.obj')
 
 mesh = Mesh.from_obj(FILE)
 
-mesh.update_default_vertex_attributes({'is_fixed': False, 'px': 0.0, 'py': 0.0, 'pz': 0.0})
+mesh.update_default_vertex_attributes({'is_fixed': False, 'px': 0.0, 'py': 0.0, 'pz': 0.0, 'rx': 0.0, 'ry': 0.0, 'rz': 0.0})
 mesh.update_default_edge_attributes({'q': 1.0, 'f': 0.0, 'rx': 0.0, 'ry': 0.0, 'rz': 0.0})
 
 # ==============================================================================
@@ -59,12 +59,12 @@ mesh.set_edges_attribute('q', 5.0, keys=boundary)
 # FoFin input
 # ==============================================================================
 
-xyz = mesh.get_vertices_...('xyz')
-fixed = ...(mesh.vertices_where({'is_fixed': True}))
-... = mesh.get_vertices_attributes(('...', '...', '...'))
+xyz = mesh.get_vertices_attributes('xyz')
+fixed = list(mesh.vertices_where({'is_fixed': True}))
+loads = mesh.get_vertices_attributes(('px', 'py', 'pz'))
 
-edges = ...(mesh.edges())
-... = mesh.get_..._attribute('q')
+edges = list(mesh.edges())
+q = mesh.get_edges_attribute('q')
 
 # ==============================================================================
 # Fofin run
@@ -80,12 +80,12 @@ for key, attr in mesh.vertices(True):
     attr['x'] = xyz[key][0]
     attr['y'] = xyz[key][1]
     attr['z'] = xyz[key][2]
-    attr['...'] = r[key][...]
-    attr['...'] = r[key][...]
-    attr['...'] = r[key][...]
+    attr['rx'] = r[key][0]
+    attr['ry'] = r[key][1]
+    attr['rz'] = r[key][2]
 
-for ..., (u, v, attr) in enumerate(mesh.edges(True)):
-    attr['f'] = ...[index][0]
+for index, (u, v, attr) in enumerate(mesh.edges(True)):
+    attr['f'] = f[index][0]
 
 # ==============================================================================
 # Visualize result
