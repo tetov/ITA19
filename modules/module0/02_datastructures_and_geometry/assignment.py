@@ -1,4 +1,4 @@
-''' Assignment for module1 in ITA19 COMPAS course
+''' Assignment for module0, 02_geometry_and_datastructures in ITA19 COMPAS course
 '''
 
 __author__ = "Anton T Johansson"
@@ -190,6 +190,8 @@ def task3_w_numpy(vectors1: List[float], vectors2: List[float]) -> List[float]:
 
 
 def traverse_mesh() -> None:
+    # TODO: get start_vert from arg
+    # TODO: visualize
     mesh = Mesh.from_obj(get('faces.obj'))
 
     # get dict with keys and coords
@@ -231,7 +233,7 @@ def traverse_mesh() -> None:
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    print("Module1 assignment by " + __author__ + "\n")
+    print("Module0, 02_datastructures_and_geometry assignment by " + __author__ + "\n")
     print("The geometry tasks are demonstrated through their doctests.")
     print("The datastructures task is demonstrated using console output.")
 
