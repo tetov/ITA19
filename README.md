@@ -33,9 +33,9 @@ Week | Date | Lead | Title | Description | Links
 1 | Oct 2 | BRG | Introduction | Course overview, COMPAS intro | [Slides](slides/week-01_COMPAS-basics.pdf)
 2 | Oct 9 | GKR | Getting Started | Development Tools 101<br>Python 101<br>COMPAS 101 | [Slides](slides/week-02_Getting_started.pdf), [Assignment](modules/module0/01_getting_started/README.md)
 3 | Oct 23 | BRG | Data structures and Geometry | Basic theory and examples | [Slides](slides/week-03_Geometry-and-Data-Structures.pdf), [Assignment](modules/module0/02_datastructures_and_geometry/README.md)
-4 | Oct 30 | BRG | Module 1: Structural Design | **Theory:** Form Finding methods | [Slides](https://docs.google.com/presentation/d/1TG2U2d6YnLHZvvsrhm00UIgFkjcQAdi41PEJZ_ZxWVw/edit?usp=sharing), [Assignment](modules/module1/assignments/README.md)
-5 | Nov 6 | BRG | Module 1: Structural Design | **Case study:** The HiLo cablenet formwork system
-6 | Nov 13 | GKR | Module 2: Robotic Assembly | **Theory:** Robotic fabrication planning and executing
+4 | Oct 30 | BRG | Module 1: Structural Design | **Theory:** Form Finding methods | [Slides](slides/week-4_Structural-Design.pdf), [Assignment](modules/module1/assignments/README.md)
+5 | Nov 6 | BRG | Module 1: Structural Design | **Case study:** The HiLo cablenet formwork system | [Slides](slides/week-5_Structural-Design.pdf)
+6 | Nov 13 | GKR | Module 2: Robotic Assembly | **Theory:** Robotic fabrication planning and executing | [Slides](https://docs.google.com/presentation/d/1OIU3vCmwe3lkVWpI0JuJJ-GFoOq5HH8ulElPZNS_F2Y/edit?usp=sharing), [Jupyter Notebook](modules/module2/Frame%20and%20Transformation.ipynb), [Assignment](modules/module2/assignments/README.md)
 7 | Nov 20 | GKR | Module 2: Robotic Assembly | **Case study:** Robotic assembly of a brick wall
 8 | Nov 27 | DBT | Module 3: Volumetric Modeling | **Theory:** Modelling with signed distance functions
 9 | Dec 4 | DBT | Module 3: Volumetric Modeling | **Case study:** Modelling of a node
@@ -47,13 +47,22 @@ https://tinyurl.com/yxse82a7
 
 ## Jupyter and extensions
 
-If you have Anaconda installed, then jupyter is already installed. If not, then install jupyter with pip.
+Make sure you install `jupyter` and extensions in the environment you are using:
+
+    conda install jupyter jupyter_contrib_nbextensions jupyter_nbextensions_configurator rise pythreejs --yes
 
 To run the jupyter notebook, you simply have to type:
 
     jupyter notebook
 
 in your command line.
+
+### Activating extensions
+
+From the `Nbextensions` tab in the notebook, install the following extensions:
+
+1. Split Cells Notebook: Enable split cells in Jupyter notebooks
+2. RISE: allows you to instantly turn your Jupyter Notebooks into a slideshow. 
 
 ### Configure workspace
 
@@ -72,17 +81,3 @@ or
 If you want jupyter to open in a different directory, then change the following line:
 
     c.NotebookApp.notebook_dir = 'YOUR_PREFERRED_PATH'
-
-### Download nbextensions
-
-To install nbextensions, execute the commands below in Anaconda Prompt:
-
-    conda install -c conda-forge jupyter_contrib_nbextensions
-    conda install -c conda-forge jupyter_nbextensions_configurator
-
-After installing, restart the Jupyter notebook, and you can observe a new tab Nbextensions added to the menu.
-Install the following extensions:
-
-1. Split Cells Notebook - Enable split cells in Jupyter notebooks
-
-2. RISE - allows you to instantly turn your Jupyter Notebooks into a slideshow. 
